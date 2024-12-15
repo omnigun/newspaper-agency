@@ -26,11 +26,15 @@ class RedactorAdmin(UserAdmin):
     )
 
 
-admin.site.register(Newspaper)
-admin.site.register(Topic)
+@admin.register(Topic)
+class TopicAdmin(admin.ModelAdmin):
+    list_display = ["id", "name"]
+    list_display_links = ["name"]
 
-# @admin.register(Topic)
-# class TopicAdmin(admin.ModelAdmin):
-# class NewspaperAdmin(admin.ModelAdmin):
-    # search_fields = ("model",)
-    # list_filter = ("manufacturer",)
+
+
+@admin.register(Newspaper)
+class NewspaperAdmin(admin.ModelAdmin):
+    list_display = ["id", "title", "topic__name", "published_date"]
+    list_display_links = ["title"]
+    ordering = ("published_date", "pk")
