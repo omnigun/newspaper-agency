@@ -32,7 +32,6 @@ class TopicAdmin(admin.ModelAdmin):
     list_display_links = ["name"]
 
 
-
 @admin.register(Newspaper)
 class NewspaperAdmin(admin.ModelAdmin):
     list_display = ["id", "title", "topic__name", "published_date"]
