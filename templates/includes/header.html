@@ -2,7 +2,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <a href="{% url 'newspaper:index' %}" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <img src="{% static 'img/logo.png' %}" alt="logo Newspaper Agency">
         <h1 class="sitename">Better newspaper agency</h1>
@@ -10,9 +10,17 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">Topics</a></li>
-          <li><a href="#services">Redactors</a></li>
+          <li><a
+                href="{% url 'newspaper:index' %}"
+                class="{{page_name_index|yesno:'active,'}}"
+          >Home</a></li>
+          <li><a
+              href="{% url 'newspaper:topic-list' %}"
+              class="{{page_name_topic_list|yesno:'active,'}}"
+          >Topics</a></li>
+
+          <li><a href="">Redactors</a></li>
+
           <li><a href="#portfolio">Newspapers</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

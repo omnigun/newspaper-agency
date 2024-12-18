@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views import generic
 
 from newspaper.models import Redactor, Topic, Newspaper
 
@@ -13,6 +14,7 @@ def main_page(request):
     num_newspapers = Newspaper.objects.count()
 
     context = {
+        "page_name_index": True,
         "num_redactors": num_redactors,
         "num_topics": num_topics,
         "num_newspapers": num_newspapers,
@@ -21,3 +23,9 @@ def main_page(request):
     return render(request, "newspaper/index.html", context=context)
 
 
+class TopicListView(LoginRequiredMixin, generic.ListView):
+    model = Topic
+    context_object_name = "topic_list"
+    template_name = "newspaper/topic_list.html"
+    extra_context = {"page_name_topic_list": True}
+    paginate_by = 5

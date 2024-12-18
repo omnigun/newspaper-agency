@@ -2066,6 +2066,13 @@ section,
 .footer .copyright {font-size: .895em}
 .scroll-top i {font-size:2rem;}
 
+#services .section-title {padding-bottom:10px}
+.table {box-shadow: 3px 3px 7px 0px rgba(0, 0, 0, 0.15);}
+.section-pre-header {width:100%; height:130px; margin-top:-90px; background-color:#37517e}
+.thead-color th{background-color:#37517e; color: #fff;}
+
+.pagination {--bs-pagination-color: #37517e; --bs-pagination-active-bg: #37517e; --bs-pagination-active-border-color: #37517e;}
+
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
