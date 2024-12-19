@@ -2065,6 +2065,7 @@ section,
 .footer{background-color:rgb(245, 246, 248); padding-bottom:0;}
 .footer .copyright {font-size: .895em}
 .scroll-top i {font-size:2rem;}
+.footer-hr{border: 1px solid #37517e; opacity:1;}
 
 #services .section-title {padding-bottom:10px}
 .table {box-shadow: 3px 3px 7px 0px rgba(0, 0, 0, 0.15);}
