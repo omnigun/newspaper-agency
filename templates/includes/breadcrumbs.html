@@ -1,0 +1,14 @@
+{% load static %}
+<div class="page-title aos-init aos-animate" data-aos="fade">
+  <div class="container">
+    <nav class="breadcrumbs">
+      <ol>
+        {% if user.is_authenticated %}
+        <li class="current">Welcome, <strong>{{ user.get_username }}</strong></li>
+        {% else %}
+        <li class="current">Welcome Guest</li>
+        {% endif %}
+      </ol>
+    </nav>
+  </div>
+</div>
