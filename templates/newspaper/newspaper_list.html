@@ -23,10 +23,12 @@
               {% for newspaper in newspaper_list %}
               <tr>
                 <td class="px-3 py-2">{{ newspaper.published_date }}</td>
+                <td class="px-3 py-2">{{ newspaper.topic }}</td>
                 <td class="px-3 py-2">
-                  <a href="{url 'newspaper:newspaper-detail' newspaper.pk}">{{ newspaper.topic }}</a>
+                  <a class="link-hover" href="{url 'newspaper:newspaper-detail' newspaper.pk}">
+                  {{ newspaper.title }}
+                  </a>
                 </td>
-                <td class="px-3 py-2">{{ newspaper.title }}</td>
                 <td></td>
               </tr>
 

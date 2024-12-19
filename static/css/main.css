@@ -2073,7 +2073,7 @@ section,
 .thead-color th{background-color:#37517e; color: #fff;}
 
 .pagination {--bs-pagination-color: #37517e; --bs-pagination-active-bg: #37517e; --bs-pagination-active-border-color: #37517e;}
-
+.link-hover:hover {text-decoration: underline; color:#37517e;}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
