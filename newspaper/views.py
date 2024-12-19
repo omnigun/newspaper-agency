@@ -29,3 +29,10 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
     template_name = "newspaper/topic_list.html"
     extra_context = {"page_name_topic_list": True}
     paginate_by = 5
+
+
+class RedactorListView(LoginRequiredMixin, generic.ListView):
+    model = Redactor
+    context_object_name = "redactor_list"
+    extra_context = {"page_name_redactor_list": True}
+    paginate_by = 5
