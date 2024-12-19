@@ -4,7 +4,7 @@
     <nav class="breadcrumbs">
       <ol>
         {% if user.is_authenticated %}
-        <li class="current">Welcome, <strong>{{ user.get_username }}</strong></li>
+        <li class="current">Welcome, <a href="{{ user.get_absolute_url }}"><strong>{{ user.get_username }}</strong></a></li>
         {% else %}
         <li class="current">Welcome Guest</li>
         {% endif %}

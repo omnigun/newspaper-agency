@@ -2082,6 +2082,9 @@ section,
 .redactors_string span:not(:last-child):after {content:", "}
 .page-title{padding-bottom:0; background-color: transparent;}
 .page-title .breadcrumbs {display:inline-block; border-bottom:2px solid #37517e;}
+
+#header.simple-header{position: absolute}
+.acc-form .form-group {padding-top:.5em; padding-bottom:1em;}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/

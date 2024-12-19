@@ -18,12 +18,10 @@
               href="{% url 'newspaper:topic-list' %}"
               class="{{page_name_topic_list|yesno:'active,'}}"
           >Topics</a></li>
-
           <li><a
               href="{% url 'newspaper:redactor-list' %}"
               class="{{page_name_redactor_list|yesno:'active,'}}"
           >Redactors</a></li>
-
           <li><a
               href="{% url 'newspaper:newspaper-list' %}"
               class="{{page_name_newspaper_list|yesno:'active,'}}"
@@ -31,6 +29,10 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="#about">Login</a>
+{% if user.is_authenticated %}
+      <a class="btn-getstarted" href="{% url 'logout'%}">Logout</a>
+{% else %}
+      <a class="btn-getstarted" href="{% url 'login'%}">Login</a>
+{% endif %}
     </div>
   </header>
