@@ -25,13 +25,12 @@
                 <td class="px-3 py-2">{{ newspaper.published_date }}</td>
                 <td class="px-3 py-2">{{ newspaper.topic }}</td>
                 <td class="px-3 py-2">
-                  <a class="link-hover" href="{url 'newspaper:newspaper-detail' newspaper.pk}">
+                  <a class="link-hover" href="{% url 'newspaper:newspaper-detail'  pk=newspaper.pk %}">
                   {{ newspaper.title }}
                   </a>
                 </td>
                 <td></td>
               </tr>
-
               {% endfor %}
             </table>
             {% else %}

@@ -2074,6 +2074,7 @@ section,
 
 .pagination {--bs-pagination-color: #37517e; --bs-pagination-active-bg: #37517e; --bs-pagination-active-border-color: #37517e;}
 .link-hover:hover {text-decoration: underline; color:#37517e;}
+.faq-2.section {min-height:85vh;}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
