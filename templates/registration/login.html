@@ -13,34 +13,13 @@
   {% if next %}
         <p>Please login to see this page.</p>
   {% endif %}
-
-<form method="post" class="acc-form" action="{% url 'login' %}">
-  {% csrf_token %}
-  {{ form|crispy }}
-
-  <input type="submit" value="Login" class="btn btn-primary" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</form>
-
-
-  <!--      <form method="post" action="{% url 'login' %}" class="php-email-form aos-init aos-animate">
+        <form method="post" class="acc-form" action="{% url 'login' %}">
           {% csrf_token %}
-          <div class="row gy-4">
-            <div class="col-md-12">
-              <label for="subject-field" class="pb-2">Username</label>
-              <input type="text" class="form-control" name="username" id="subject-field" required="">
-            </div>
-            <div class="col-md-12">
-              <label for="pass-field" class="pb-2">Password</label>
-              <input class="form-control" type="password" name="password" id="pass-field" required="">
-            </div>
-            <div class="col-md-12 text-center">
-              <input type="submit" value="Login" class="btn btn-primary" />
-              <input type="hidden" name="next" value="{{ next }}" />
-            </div>
-          </div>
+          {{ form|crispy }}
+          <input type="submit" value="Login" class="btn btn-primary" />
+          <input type="hidden" name="next" value="{{ next }}" />
         </form>
--->
+
       </div>
     </div>
   </div>
