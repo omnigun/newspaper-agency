@@ -41,6 +41,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 
 class NewspaperListView(LoginRequiredMixin, generic.ListView):
     model = Newspaper
+    queryset = Newspaper.objects.all().select_related("topic")
     context_object_name = "newspaper_list"
     template_name = "newspaper/newspaper_list.html"
     extra_context = {"page_name_newspaper_list": True}
@@ -53,4 +54,8 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
     template_name = "newspaper/newspaper_detail.html"
     extra_context = {"page_name_newspaper_detail": True}
 
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        publishers = Redactor.objects.all().filter(newspapers__pk=self.object.id)
+        context["publishers"] = publishers
+        return context

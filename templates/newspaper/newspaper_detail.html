@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section id="faq-2" class="faq-2 section light-background">
+  <div class="section-pre-header"></div>
+  <!-- Section Title -->
+  <div class="container detail-container section-title aos-init aos-animate" data-aos="fade-up">
+    <h2 class="mt-5">{{newspaper.title}}</h2>
+  </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="faq-container">
+
+              <div class="faq-item faq-active aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3 class="d-flex justify-content-between">
+                  <span>{{ newspaper.topic }}</span><span>{{newspaper.published_date }}</span>
+                </h3>
+                <div class="faq-content  newspaper-content">
+                  <div class="fw-bold redactors_string">
+                    {% for publisher in publishers %}
+                      <span>{{ publisher.get_full_name}}</span>
+                    {% endfor %}
+                  </div>
+                  <p class="mt-3">{{ newspaper.content }}</p>
+                 </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
