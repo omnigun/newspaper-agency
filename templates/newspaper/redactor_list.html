@@ -5,31 +5,36 @@
       <div class="section-pre-header"></div>
       <!-- Section Title -->
       <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2 class="mt-5">Topics</h2>
-        <p>Here are all the topics that we cover in our newspaper.</p>
+        <h2 class="mt-5">Redactors</h2>
+        <p>List of our editors. True professionals, excellent colleagues.</p>
       </div><!-- End Section Title -->
 
-    {% comment %}
       <div class="container">
         <div class="row gy-4">
           <div class="col-12">
-            {% if topic_list %}
+            {% if redactor_list %}
             <table class="table">
-              <tr class="thead-color"><th class="p-3" >ID Topic</th><th class="p-3">Topic Name</th></tr>
-            {% for topic in topic_list %}
+              <tr class="thead-color">
+                <th class="p-3" >Username</th>
+                <th class="p-3">First name</th>
+                <th class="p-3">Last name</th>
+                <th class="p-3">years_of_experience</th>
+              </tr>
+            {% for redactor in redactor_list %}
               <tr>
-                <td class="px-3 py-2">{{ topic.id }}.</td>
-                <td class="px-3 py-2">{{ topic.name }}</td>
+                <td class="px-3 py-2">{{ redactor.username }}</td>
+                <td class="px-3 py-2">{{ redactor.first_name }}</td>
+                <td class="px-3 py-2">{{ redactor.last_name }}</td>
+                <td class="px-3 py-2">{{ redactor.years_of_experience }}</td>
               </tr>
             {% endfor %}
             </table>
             {% else %}
-            <p>There are no topic in the service.</p>
+            <p>There are no redactors in the agency.</p>
             {% endif %}
           </div>
         </div>
       </div>
-    {% endcomment %}
 
       {% block pagination %}
         {% include "includes/pagination.html" %}
