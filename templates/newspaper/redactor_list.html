@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <section id="services" class="services section light-background">
+      <div class="section-pre-header"></div>
+      <!-- Section Title -->
+      <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+        <h2 class="mt-5">Topics</h2>
+        <p>Here are all the topics that we cover in our newspaper.</p>
+      </div><!-- End Section Title -->
+
+    {% comment %}
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-12">
+            {% if topic_list %}
+            <table class="table">
+              <tr class="thead-color"><th class="p-3" >ID Topic</th><th class="p-3">Topic Name</th></tr>
+            {% for topic in topic_list %}
+              <tr>
+                <td class="px-3 py-2">{{ topic.id }}.</td>
+                <td class="px-3 py-2">{{ topic.name }}</td>
+              </tr>
+            {% endfor %}
+            </table>
+            {% else %}
+            <p>There are no topic in the service.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endcomment %}
+
+      {% block pagination %}
+        {% include "includes/pagination.html" %}
+      {% endblock %}
+    </section>
+{% endblock %}
