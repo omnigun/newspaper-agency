@@ -45,3 +45,12 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
     template_name = "newspaper/newspaper_list.html"
     extra_context = {"page_name_newspaper_list": True}
     paginate_by = 5
+
+
+class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Newspaper
+    context_object_name = "newspaper"
+    template_name = "newspaper/newspaper_detail.html"
+    extra_context = {"page_name_newspaper_detail": True}
+
+
