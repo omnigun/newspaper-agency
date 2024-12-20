@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.db.models import Count
 
@@ -49,6 +50,12 @@ class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
         newspapers = Newspaper.objects.prefetch_related("publishers").filter(publishers__pk=self.object.id)
         context["newspapers"] = newspapers
         return context
+
+
+class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Redactor
+    form_class = RedactorCreationForm
+    success_url = reverse_lazy("newspaper:redactor-list")
 
 
 class NewspaperListView(LoginRequiredMixin, generic.ListView):
