@@ -39,6 +39,13 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
 
 
+class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Redactor
+    queryset = Redactor.objects.all().prefetch_related("newspaper__topic")
+    context_object_name = "redactor"
+    template_name = "newspaper/redactor_detail.html"
+
+
 class NewspaperListView(LoginRequiredMixin, generic.ListView):
     model = Newspaper
     queryset = Newspaper.objects.all().select_related("topic")
