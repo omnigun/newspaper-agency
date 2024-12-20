@@ -5,6 +5,7 @@ from newspaper.views import (
     RedactorListView,
     RedactorDetailView,
     RedactorCreateView,
+    RedactorDeleteView,
     NewspaperListView,
     NewspaperDetailView)
 
@@ -31,6 +32,10 @@ urlpatterns = [
         "redactors/create/",
          RedactorCreateView.as_view(),
         name="redactor-create"),
+    path(
+        "redactors/<int:pk>/delete/",
+         RedactorDeleteView.as_view(),
+        name="redactor-delete"),
 
     path(
         "newspapers/",
