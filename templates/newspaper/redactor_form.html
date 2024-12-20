@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <section id="faq-2" class="faq-2  section dark-background">
+    <div class="section-pre-header"></div>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-3">
+
+          <h1>
+          {% if form.username %}
+            Create new Redactor
+          {% else %}
+            Change years of experience
+          {% endif %}
+          </h1>
+          <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" value="Submit" class="btn btn-primary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
