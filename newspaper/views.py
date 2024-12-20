@@ -7,6 +7,7 @@ from django.db.models import Count
 from newspaper.models import Redactor, Topic, Newspaper
 from newspaper.forms import RedactorCreationForm
 
+
 def main_page(request):
     """View function for the home page of the site."""
     num_redactors = Redactor.objects.count()
