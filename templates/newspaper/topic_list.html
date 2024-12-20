@@ -15,11 +15,16 @@
           <div class="col-12">
             {% if topic_list %}
             <table class="table">
-              <tr class="thead-color"><th class="p-3" >ID Topic</th><th class="p-3">Topic Name</th></tr>
+              <tr class="thead-color">
+                <th class="p-3" >ID Topic</th>
+                <th class="p-3">Topic Name</th>
+                <th class="p-3">Newspaper issues</th>
+              </tr>
             {% for topic in topic_list %}
               <tr>
                 <td class="px-3 py-2">{{ topic.id }}.</td>
                 <td class="px-3 py-2">{{ topic.name }}</td>
+                <td class="px-3 py-2">{{ topic.news }}</td>
               </tr>
             {% endfor %}
             </table>

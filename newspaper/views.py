@@ -1,7 +1,7 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
+from django.db.models import Count
 
 from newspaper.models import Redactor, Topic, Newspaper
 
@@ -23,6 +23,7 @@ def main_page(request):
 
 class TopicListView(LoginRequiredMixin, generic.ListView):
     model = Topic
+    queryset = Topic.objects.all().annotate(news=Count('newspaper__pk'))
     context_object_name = "topic_list"
     template_name = "newspaper/topic_list.html"
     extra_context = {"page_name_topic_list": True}
