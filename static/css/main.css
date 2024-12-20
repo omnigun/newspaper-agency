@@ -2095,6 +2095,7 @@ section,
   padding:1em 2em; margin-top:.5em; color:red!important;
   box-shadow: 3px 3px 7px 0px rgba(0, 0, 0, 0.15);
 }
+.link-underline {border-bottom:1px solid}
 
 /*--------------------------------------------------------------
 # Starter Section Section
