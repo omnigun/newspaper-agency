@@ -24,7 +24,10 @@
               </tr>
               {% for redactor in redactor_list %}
               <tr>
-                <td class="px-3 py-2">{{ redactor.username }} {% if user == redactor %}(Me){% endif %}</td>
+
+                <td class="px-3 py-2">
+                  <a href="{%url 'redactor-detail' pk=redactor.pk %}">
+                  {{ redactor.username }} {% if user == redactor %}(Me){% endif %}</a></td>
                 <td class="px-3 py-2">{{ redactor.first_name }}</td>
                 <td class="px-3 py-2">{{ redactor.last_name }}</td>
                 <td class="px-3 py-2 text-center">{{ redactor.years_of_experience }}</td>
