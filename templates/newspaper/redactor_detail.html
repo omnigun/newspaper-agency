@@ -9,14 +9,15 @@
         <h2 class="mt-5">
           {{ redactor.first_name }} {{ redactor.last_name }} {% if user == redactor %}(Me){% endif %}</h2>
         <p>
-          Expires: {{ redactor.years_of_experience }} years |
-          Published: {{ newspapers }} newspaper</p>
+          Expires: <strong>{{ redactor.years_of_experience }}</strong> years |
+          Published: <strong>{{ newspapers|length }}</strong> newspaper</p>
       </div><!-- End Section Title -->
 
       <div class="container">
+        <h2 class="mt-5">Publications:</h2>
         <div class="row gy-4">
           <div class="col-12">
-            {% if newspaper_list %}
+            {% if newspapers %}
             <table class="table">
               <tr class="thead-color">
                 <th class="p-3" >Release Date</th>
@@ -24,7 +25,7 @@
                 <th class="p-3 text-center">Title</th>
                 <th class="p-3 text-center">Modify</th>
               </tr>
-              {% for newspaper in newspaper_list %}
+              {% for newspaper in newspapers %}
               <tr>
                 <td class="px-3 py-2">{{ newspaper.published_date }}</td>
                 <td class="px-3 py-2">{{ newspaper.topic }}</td>
@@ -38,7 +39,7 @@
               {% endfor %}
             </table>
             {% else %}
-            <p>There are no newspapers in the agency.</p>
+            <p>I don't have any publications yet.</p>
             {% endif %}
           </div>
         </div>

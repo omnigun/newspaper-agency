@@ -2087,6 +2087,8 @@ section,
 #header.simple-header{position: absolute}
 .acc-form .form-group {padding-top:.5em; padding-bottom:1em;}
 .some-link {color: var(--accent-color); text-decoration: none; transition: 0.3s;}
+
+.container-form-link{margin-top:-5px}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
