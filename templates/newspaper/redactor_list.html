@@ -16,7 +16,8 @@
             {% if redactor_list %}
             <table class="table">
               <tr class="thead-color">
-                <th class="p-3" >Username</th>
+                <th class="p-3"># ID</th>
+                <th class="p-3">Username</th>
                 <th class="p-3">First name</th>
                 <th class="p-3">Last name</th>
                 <th class="p-3 text-center">Years of experience</th>
@@ -24,9 +25,9 @@
               </tr>
               {% for redactor in redactor_list %}
               <tr>
-
+                <td class="px-3 py-2">{{ redactor.pk }}</td>
                 <td class="px-3 py-2">
-                  <a href="{%url 'redactor-detail' pk=redactor.pk %}">
+                  <a href="{%url 'newspaper:redactor-detail' pk=redactor.pk %}">
                   {{ redactor.username }} {% if user == redactor %}(Me){% endif %}</a></td>
                 <td class="px-3 py-2">{{ redactor.first_name }}</td>
                 <td class="px-3 py-2">{{ redactor.last_name }}</td>

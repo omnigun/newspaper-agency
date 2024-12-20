@@ -41,7 +41,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 
 class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Redactor
-    queryset = Redactor.objects.all().prefetch_related("newspaper__topic")
+    queryset = Redactor.objects.all().prefetch_related("newspapers__topic")
     context_object_name = "redactor"
     template_name = "newspaper/redactor_detail.html"
 
