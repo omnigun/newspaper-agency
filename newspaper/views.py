@@ -32,6 +32,7 @@ class TopicListView(LoginRequiredMixin, generic.ListView):
 
 class RedactorListView(LoginRequiredMixin, generic.ListView):
     model = Redactor
+    queryset = Redactor.objects.all().prefetch_related("newspapers").annotate(news=Count('newspapers__pk'))
     context_object_name = "redactor_list"
     template_name = "newspaper/redactor_list.html"
     extra_context = {"page_name_redactor_list": True}
