@@ -41,9 +41,14 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 
 class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Redactor
-    queryset = Redactor.objects.all().prefetch_related("newspapers__topic")
     context_object_name = "redactor"
     template_name = "newspaper/redactor_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        newspapers = Newspaper.objects.prefetch_related("publishers").filter(publishers__pk=self.object.id)
+        context["newspapers"] = newspapers
+        return context
 
 
 class NewspaperListView(LoginRequiredMixin, generic.ListView):

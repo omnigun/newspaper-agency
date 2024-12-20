@@ -6,8 +6,11 @@
       {% include "includes/breadcrumbs.html" %}
       <!-- Section Title -->
       <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2 class="mt-5">Newspaper</h2>
-        <p>All issues of our newspaper</p>
+        <h2 class="mt-5">
+          {{ redactor.first_name }} {{ redactor.last_name }} {% if user == redactor %}(Me){% endif %}</h2>
+        <p>
+          Expires: {{ redactor.years_of_experience }} years |
+          Published: {{ newspapers }} newspaper</p>
       </div><!-- End Section Title -->
 
       <div class="container">
