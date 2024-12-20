@@ -20,10 +20,14 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Topics</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Redactors</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Newspapers</a></li>
+            <li><i class="bi bi-chevron-right"></i>
+              <a href="{% url 'newspaper:index' %}">Home</a></li>
+            <li><i class="bi bi-chevron-right"></i>
+              <a href="{% url 'newspaper:topic-list' %}">Topics</a></li>
+            <li><i class="bi bi-chevron-right"></i>
+              <a href="{% url 'newspaper:redactor-list' %}">Redactors</a></li>
+            <li><i class="bi bi-chevron-right"></i>
+              <a href="{% url 'newspaper:newspaper-list' %}">Newspapers</a></li>
           </ul>
         </div>
       </div>

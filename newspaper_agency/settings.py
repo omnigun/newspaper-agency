@@ -70,6 +70,8 @@ TEMPLATES = [
     },
 ]
 
+#ERROR_404_TEMPLATE_NAME = 'page_404.html'
+
 WSGI_APPLICATION = 'newspaper_agency.wsgi.application'
 
 
