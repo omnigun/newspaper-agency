@@ -12,3 +12,11 @@ class RedactorCreationForm(UserCreationForm):
         required=True,
         validators=[MinValueValidator(0), MaxValueValidator(30)]
     )
+
+    class Meta(UserCreationForm.Meta):
+        model = Redactor
+        fields = UserCreationForm.Meta.fields + (
+            "first_name",
+            "last_name",
+            "years_of_experience",
+        )

@@ -2089,6 +2089,13 @@ section,
 .some-link {color: var(--accent-color); text-decoration: none; transition: 0.3s;}
 
 .container-form-link{margin-top:-5px}
+.form-control ~ .form-text {
+  display:block; width:180%; margin-left:-40%;
+  background-color: lightgrey!important; border-radius:4px;
+  padding:1em 2em; margin-top:.5em; color:red!important;
+  box-shadow: 3px 3px 7px 0px rgba(0, 0, 0, 0.15);
+}
+
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/

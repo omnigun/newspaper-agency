@@ -9,15 +9,17 @@
 
           <h1>
           {% if form.username %}
-            Create new Redactor
+            Create Redactor
           {% else %}
             Change years of experience
           {% endif %}
           </h1>
-          <form action="" method="post" novalidate>
+          <form action="" class="acc-form" method="post" novalidate>
             {% csrf_token %}
             {{ form|crispy }}
-            <input type="submit" value="Submit" class="btn btn-primary">
+            <div class="text-center">
+              <input type="submit" value="Submit" class="btn btn-primary">
+            </div>
           </form>
         </div>
       </div>
