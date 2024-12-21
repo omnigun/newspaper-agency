@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <section id="faq-2" class="faq-2  section dark-background">
+    <div class="section-pre-header"></div>
+    <div class="container mt-5">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+
+          <h1 class="text-danger">Delete Newspaper:</h1>
+          <h3 class="mb-5">{{newspaper.title}}</h3>
+          <form action="" class="acc-form" method="post" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="text-center">
+              <input type="submit" value="Yes, Delete" class="btn btn-primary">
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
