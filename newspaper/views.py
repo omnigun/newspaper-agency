@@ -5,7 +5,10 @@ from django.views import generic
 from django.db.models import Count
 
 from newspaper.models import Redactor, Topic, Newspaper
-from newspaper.forms import RedactorCreationForm, RedactorExperienceForm
+from newspaper.forms import (
+    RedactorCreationForm,
+    RedactorExperienceForm,
+    NewspaperForm)
 
 
 def main_page(request):
@@ -90,3 +93,9 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
         publishers = Redactor.objects.all().filter(newspapers__pk=self.object.id)
         context["publishers"] = publishers
         return context
+
+
+class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Newspaper
+    form_class = NewspaperForm
+    success_url = reverse_lazy("newspaper:newspaper-list")
