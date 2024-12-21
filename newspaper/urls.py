@@ -72,5 +72,4 @@ urlpatterns = [
         "newspapers/<int:pk>/delete/",
         NewspaperDeleteView.as_view(),
         name="newspaper-delete"),
-
 ]

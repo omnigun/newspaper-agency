@@ -110,4 +110,3 @@ class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
 class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Newspaper
     success_url = reverse_lazy("newspaper:newspaper-list")
-
