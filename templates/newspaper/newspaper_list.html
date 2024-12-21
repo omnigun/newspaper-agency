@@ -24,7 +24,7 @@
             <table class="table">
               <tr class="thead-color">
                 <th class="p-3" >Release Date</th>
-                <th class="p-3">Topic</th>
+                <th class="p-3 text-center">Topic</th>
                 <th class="p-3 text-center">Title</th>
                 <th class="p-3 text-center">Modify</th>
               </tr>
@@ -37,7 +37,16 @@
                   {{ newspaper.title }}
                   </a>
                 </td>
-                <td></td>
+                <td class="text-center">
+                  <a
+                      href="{%url 'newspaper:newspaper-update' pk=newspaper.pk %}"
+                      class="btn btn-outline-info btn-sm"
+                  >Update</a>
+                  <a
+                      href="{url 'newspaper:newspaper-delete' pk=redactor.pk %}"
+                      class="btn btn-outline-danger btn-sm"
+                  >Delete</a>
+                </td>
               </tr>
               {% endfor %}
             </table>
