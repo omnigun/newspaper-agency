@@ -6,7 +6,14 @@
       {% include "includes/breadcrumbs.html" %}
       <!-- Section Title -->
       <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2 class="mt-5">Newspaper</h2>
+        <h2 class="mt-5">
+          <span>Newspaper</span>
+          <span class="px-5 about container-form-link position-absolute">
+            <a href="{% url 'newspaper:newspaper-create' %}" class="read-more">
+              <span>Create Newspaper</span>
+            </a>
+          </span>
+          </h2>
         <p>All issues of our newspaper</p>
       </div><!-- End Section Title -->
 
