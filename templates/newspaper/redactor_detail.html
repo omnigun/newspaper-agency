@@ -20,8 +20,8 @@
           </span>
         </h2>
         <p>
-          Expires: <strong>{{ redactor.years_of_experience }}</strong> years |
-          Published: <strong>{{ newspapers|length }}</strong> newspaper</p>
+          Experience: <strong>{{ redactor.years_of_experience }}</strong> year{{redactor.years_of_experience|pluralize:"s"}} |
+          Published: <strong>{{ newspapers|length }}</strong> newspaper{{newspapers|length|pluralize:"s"}}</p>
       </div><!-- End Section Title -->
 
       <div class="container">
