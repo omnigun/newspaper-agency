@@ -32,14 +32,18 @@ urlpatterns = [
     path(
         "redactors/create/",
          RedactorCreateView.as_view(),
-        name="redactor-create"),
+        name="redactor-create"
+    ),
     path(
         "redactors/<int:pk>/delete/",
          RedactorDeleteView.as_view(),
-        name="redactor-delete"),
-    path("redactors/<int:pk>/expirience/",
-         RedactorExperienceUpdateView.as_view(), name="redactor-update"),
-
+        name="redactor-delete"
+    ),
+    path(
+        "redactors/<int:pk>/experience/",
+         RedactorExperienceUpdateView.as_view(),
+        name="redactor-update"
+    ),
     path(
         "newspapers/",
         NewspaperListView.as_view(),
