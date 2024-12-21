@@ -5,7 +5,7 @@ from django.views import generic
 from django.db.models import Count
 
 from newspaper.models import Redactor, Topic, Newspaper
-from newspaper.forms import RedactorCreationForm
+from newspaper.forms import RedactorCreationForm, RedactorExperienceForm
 
 
 def main_page(request):
@@ -61,7 +61,7 @@ class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
 
 class RedactorExperienceUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Redactor
-    form_class = RedactorCreationForm
+    form_class = RedactorExperienceForm
     success_url = reverse_lazy("newspaper:redactor-list")
 
 

@@ -20,3 +20,14 @@ class RedactorCreationForm(UserCreationForm):
             "last_name",
             "years_of_experience",
         )
+
+
+class RedactorExperienceForm(forms.ModelForm):
+    years_of_experience =forms.IntegerField(
+        required=True,
+        validators=[MinValueValidator(0), MaxValueValidator(30)]
+    )
+
+    class Meta:
+        model = Redactor
+        fields = ("years_of_experience",)
