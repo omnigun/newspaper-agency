@@ -9,7 +9,8 @@ from newspaper.views import (
     RedactorDeleteView,
     NewspaperListView,
     NewspaperDetailView,
-    NewspaperCreateView
+    NewspaperCreateView,
+    NewspaperUpdateView,
 )
 
 
@@ -56,6 +57,14 @@ urlpatterns = [
         NewspaperDetailView.as_view(),
         name="newspaper-detail",
     ),
-    path("newspaper/create/", NewspaperCreateView.as_view(), name="newspaper-create"),
-
+    path(
+        "newspapers/create/",
+        NewspaperCreateView.as_view(),
+        name="newspaper-create"
+    ),
+    path(
+        "newspapers/<int:pk>/update/",
+         NewspaperUpdateView.as_view(),
+        name="newspaper-update"
+    ),
 ]
