@@ -7,14 +7,25 @@
       <!-- Section Title -->
       <div class="container section-title aos-init aos-animate" data-aos="fade-up">
         <h2 class="mt-5">
-          {{ redactor.first_name }} {{ redactor.last_name }} {% if user == redactor %}(Me){% endif %}</h2>
+          <span>
+            {{ redactor.first_name }} {{ redactor.last_name }} {% if user == redactor %}(Me){% endif %}
+          </span>
+          <span class="px-5 about container-form-link position-absolute">
+            <a href="{%url 'newspaper:redactor-update' pk=redactor.pk %}"
+               class="btn btn-outline-info btn-sm"
+            >Update Experience</a>
+            <a href="{%url 'newspaper:redactor-delete' pk=redactor.pk %}"
+               class="btn btn-outline-danger btn-sm"
+            >Delete</a>
+          </span>
+        </h2>
         <p>
           Expires: <strong>{{ redactor.years_of_experience }}</strong> years |
           Published: <strong>{{ newspapers|length }}</strong> newspaper</p>
       </div><!-- End Section Title -->
 
       <div class="container">
-        <h2 class="mt-5">Publications:</h2>
+        <h2 class="mt-3">Publications:</h2>
         <div class="row gy-4">
           <div class="col-12">
             {% if newspapers %}
