@@ -12,8 +12,18 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10">
-            <div class="faq-container">
+            <p class="d-flex justify-content-end">
+              <a
+                  href="{% url 'newspaper:newspaper-update' pk=newspaper.pk %}"
+                  class="btn btn-outline-info btn-sm"
+              >Update</a>&nbsp;
+              <a
+                  href="{% url 'newspaper:newspaper-delete' pk=newspaper.pk %}"
+                  class="btn btn-outline-danger btn-sm"
+                  >Delete</a>
+            </p>
 
+            <div class="faq-container">
               <div class="faq-item faq-active aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                 <i class="faq-icon bi bi-question-circle"></i>
                 <h3 class="d-flex justify-content-between">
