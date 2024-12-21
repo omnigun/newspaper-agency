@@ -31,3 +31,16 @@ class RedactorExperienceForm(forms.ModelForm):
     class Meta:
         model = Redactor
         fields = ("years_of_experience",)
+
+
+class NewspaperForm(forms.ModelForm):
+    model = Newspaper
+    redactors = forms.ModelMultipleChoiceField(
+        queryset=get_user_model().objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=True
+    )
+
+    class Meta:
+        model = Newspaper
+        fields = "__all__"
