@@ -1,0 +1,41 @@
+{% load static %}
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="{% url 'newspaper:index' %}" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="{% static 'img/logo.png' %}" alt="logo Newspaper Agency">
+        <h1 class="sitename">Better newspaper agency</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a
+                href="{% url 'newspaper:index' %}"
+                class="{{page_name_index|yesno:'active,'}}"
+          >Home</a></li>
+          <li><a
+              href="{% url 'newspaper:topic-list' %}"
+              class="{{page_name_topic_list|yesno:'active,'}}"
+          >Topics</a></li>
+          <li><a
+              href="{% url 'newspaper:redactor-list' %}"
+              class="{{page_name_redactor_list|yesno:'active,'}}"
+          >Redactors</a></li>
+          <li><a
+              href="{% url 'newspaper:newspaper-list' %}"
+              class="{{page_name_newspaper_list|yesno:'active,'}}"
+          >Newspapers</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+{% if user.is_authenticated %}
+      <form id="logout-form" action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <a class="btn-getstarted" href="{% url 'logout'%}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+      </form>
+{% else %}
+      <a class="btn-getstarted" href="{% url 'login'%}">Login</a>
+{% endif %}
+    </div>
+  </header>

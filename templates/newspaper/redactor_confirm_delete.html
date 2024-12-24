@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+  <section id="faq-2" class="faq-2  section dark-background">
+    <div class="section-pre-header"></div>
+    <div class="container mt-5">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+        {% if redactor.is_staff %}
+
+          <div class="alert alert-danger text-center" role="alert">
+            <p class="mb-2">You cannot delete this redactor. Please contact the administrator.</p>
+            <hr>
+            <a id="btn-go-back" href="javascript:history.back()" class="btn btn-secondary">Go Back</a>
+          </div>
+
+        {% else %}
+          <h1 class="text-danger">Delete this Redactor:</h1>
+          <h3 class="mb-5">{{redactor.first_name}} {{redactor.last_name}}?</h3>
+          <form action="" class="acc-form" method="post" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="text-center">
+              <input type="submit" value="Yes, Delete" class="btn btn-primary">
+            </div>
+          </form>
+        {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

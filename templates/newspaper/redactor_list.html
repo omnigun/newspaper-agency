@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <section id="services" class="services section light-background">
+      <div class="section-pre-header"></div>
+      {% include "includes/breadcrumbs.html" %}
+      <!-- Section Title -->
+      <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+        <h2 class="mt-2">
+          <span>Redactors</span>
+          <span class="px-5 about container-form-link position-absolute">
+            <a href="{% url 'newspaper:redactor-create' %}" class="read-more">
+              <span>Create Redactor</span>
+            </a>
+          </span>
+        </h2>
+
+        <p>List of our editors. True professionals, excellent colleagues.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-12">
+            {% if redactor_list %}
+            <table class="table">
+              <tr class="thead-color">
+                <th class="p-3"># ID</th>
+                <th class="p-3">Username</th>
+                <th class="p-3">Full name</th>
+                <th class="p-3 text-center">Experience, years</th>
+                <th class="p-3 text-center">Newspaper issue</th>
+                <th class="p-3 text-center">Modify</th>
+              </tr>
+              {% for redactor in redactor_list %}
+              <tr>
+                <td class="px-3 py-2">{{ redactor.pk }}</td>
+                <td class="px-3 py-2">
+                  <a href="{%url 'newspaper:redactor-detail' pk=redactor.pk %}"
+                  class="link-underline"
+                  >
+                  {{ redactor.username }} {% if user == redactor %}(Me){% endif %}</a></td>
+                <td class="px-3 py-2">{{ redactor.first_name }} {{ redactor.last_name }}</td>
+                <td class="px-3 py-2 text-center">{{ redactor.years_of_experience }}</td>
+                <td class="px-3 py-2 text-center">{{redactor.news}}</td>
+                <td class="px-3 py-2 text-center">
+                  <a
+                      href="{%url 'newspaper:redactor-update' pk=redactor.pk %}"
+                      class="btn btn-outline-info btn-sm"
+                  >Update Experience</a>
+                  <a
+                      href="{%url 'newspaper:redactor-delete' pk=redactor.pk %}"
+                      class="btn btn-outline-danger btn-sm"
+                  >Delete</a></td>
+              </tr>
+              {% endfor %}
+            </table>
+            {% else %}
+            <p>There are no redactors in the agency.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% block pagination %}
+        {% include "includes/pagination.html" %}
+      {% endblock %}
+    </section>
+{% endblock %}

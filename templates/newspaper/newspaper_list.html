@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <section id="services" class="services section light-background">
+      <div class="section-pre-header"></div>
+      {% include "includes/breadcrumbs.html" %}
+      <!-- Section Title -->
+      <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+        <h2 class="mt-5">
+          <span>Newspaper</span>
+          <span class="px-5 about container-form-link position-absolute">
+            <a href="{% url 'newspaper:newspaper-create' %}" class="read-more">
+              <span>Create Newspaper</span>
+            </a>
+          </span>
+          </h2>
+        <p>All issues of our newspaper</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-12">
+            {% if newspaper_list %}
+            <table class="table">
+              <tr class="thead-color">
+                <th class="p-3" >Release Date</th>
+                <th class="p-3 text-center">Topic</th>
+                <th class="p-3 text-center">Title</th>
+                <th class="p-3 text-center">Modify</th>
+              </tr>
+              {% for newspaper in newspaper_list %}
+              <tr>
+                <td class="px-3 py-2">{{ newspaper.published_date }}</td>
+                <td class="px-3 py-2">{{ newspaper.topic }}</td>
+                <td class="px-3 py-2">
+                  <a class="link-hover" href="{% url 'newspaper:newspaper-detail'  pk=newspaper.pk %}">
+                  {{ newspaper.title }}
+                  </a>
+                </td>
+                <td class="text-center">
+                  <a
+                      href="{% url 'newspaper:newspaper-update' pk=newspaper.pk %}"
+                      class="btn btn-outline-info btn-sm"
+                  >Update</a>
+                  <a
+                      href="{% url 'newspaper:newspaper-delete' pk=newspaper.pk %}"
+                      class="btn btn-outline-danger btn-sm"
+                  >Delete</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+            {% else %}
+            <p>There are no newspapers in the agency.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% block pagination %}
+        {% include "includes/pagination.html" %}
+      {% endblock %}
+    </section>
+{% endblock %}
